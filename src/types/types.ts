@@ -9,6 +9,7 @@ export type VolumeInfo = {
     imageLinks: {small: string, thumbnail: string}|null
     language: string
     previewLink: string
+    id: string
 }
 
 export type SearchParams = {
@@ -27,4 +28,5 @@ export interface BookState{
     totalBooksCount: number,
     categories: string,
     sortingMethod: string,
+    searchTerms: string
 }

@@ -15,7 +15,7 @@ function Main(){
             pageNumber:0,
             pageSize:30,
             sortingMethod: 'relevance',
-            categories: 'All'
+            categories: state.categories
         }
         const fetchData = async ()=> {
             try {
@@ -34,7 +34,7 @@ function Main(){
             pageNumber:state.totalBooks,
             pageSize:30,
             sortingMethod: 'relevance',
-            categories: 'All'
+            categories: state.categories
         }
         const fetchData = async ()=> {
             try {
