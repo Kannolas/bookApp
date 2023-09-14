@@ -1,24 +1,12 @@
 import {AppDispatch} from "../store";
-import axios from "axios";
-import {VolumeInfo, SearchParams} from "../../types/types";
+import {SearchParams, VolumeInfo} from "../../types/types";
 import API_KEY from "../../info";
 import {BASE_URL} from "../../info";
 import {booksFetching, booksFetchingSuccess, booksFetchingError} from "./BookSlice";
 
-
 export const fetchBooks = ({searchTerms, pageNumber, pageSize, sortingMethod, categories}: SearchParams)=> async(dispatch: AppDispatch)=>{
         console.log('fetching')
-        dispatch(booksFetching)
-        // const response = await axios.get<VolumeInfo>(`${BASE_URL}`
-        //     , {
-        //     params: {
-        //         q: encodedSearchTerms,
-        //         orderBy: sortingMethod,
-        //         maxResults: pageSize,
-        //         key: API_KEY,
-        //     },
-        // }
-        // );
+        dispatch(booksFetching())
     try {
 
 
@@ -28,8 +16,25 @@ export const fetchBooks = ({searchTerms, pageNumber, pageSize, sortingMethod, ca
             }
             return response.json()
         }).then((data) => {
+            console.log(data)
             const totalBooksCount: number = data.totalItems
-            const items = data.items.map((item: any) => item.volumeInfo
+            if(totalBooksCount===0){
+                throw new Error('Books not found')
+            }
+            const items = data.items.map((item: any):VolumeInfo => {
+                return{
+                    title:item.volumeInfo.title,
+                    publisher: item.volumeInfo.publisher,
+                    authors: item.volumeInfo.authors,
+                    publishedDate: item.volumeInfo.publishedDate,
+                    description: item.volumeInfo.description,
+                    pageCount: item.volumeInfo.pageCount,
+                    categories: item.volumeInfo.categories,
+                    imageLinks: item.volumeInfo.imageLinks || null,
+                    language: item.volumeInfo.language,
+                    previewLink: item.volumeInfo.previewLink
+                }
+                }
             )
             const payload = {
                 items,

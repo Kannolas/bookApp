@@ -5,9 +5,8 @@ export type VolumeInfo = {
     publishedDate: string
     description?: string
     pageCount: number
-    dimensions?: {height?: string, width?: string, thickness?: string}
     categories?: Array<string>
-    imageLinks?: {small?: string, thumbnail?: string}
+    imageLinks: {small: string, thumbnail: string}|null
     language: string
     previewLink: string
 }
@@ -25,5 +24,7 @@ export interface BookState{
     isLoading: boolean;
     error:string;
     totalBooks:number;
-    totalBooksCount: number
+    totalBooksCount: number,
+    categories: string,
+    sortingMethod: string,
 }

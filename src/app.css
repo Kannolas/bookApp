@@ -22,13 +22,13 @@ body{
   justify-content: center;
   align-items: center;
   margin-top: 70px;
-  opacity: 0.8;
 }
 
 .searchForm-container{
   width: 60%;
   height: 100%;
-  background: #fff;
+  background:rgba(255, 255, 255, 0.7);
+
 }
 
 .Booklist{
@@ -39,20 +39,34 @@ body{
   align-items: center;
 }
 
-.Booklist-cont{
+.Booklist-allcont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 80%;
   height: auto;
   margin-top: 50px;
   background: rgba(255, 255, 255, 0.7);
+}
+
+.Booklist-cont{
+
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(3,1fr);
   grid-gap: 20px;
 }
+
+.Booklist-found{
+  margin-top: 20px;
+  font-size: 30px;
+  color: #282222;
+}
 /*book*/
 .Book{
   width: 80%;
-  height: 400px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,6 +75,11 @@ body{
   background-color: rgb(246, 233, 233);
   transition: all 0.3s;
 }
+.Book:hover{
+  transform:scale(1.03);
+  background: #dec3ef;
+}
+
 .book-img{
   width: 80%;
   height: 200px;
@@ -89,10 +108,7 @@ body{
   cursor: pointer;
 }
 
-.Book:hover{
-  transform:scale(1.03);
-  background: #dec3ef;
-}
+
 
 .book-authors{
   color: #797878;

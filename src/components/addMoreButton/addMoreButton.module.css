@@ -1,0 +1,20 @@
+.addMoreButton{
+    width: 80%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f15151;
+    opacity: 0.98;
+    border-radius: 15px;
+    color: #FFF;
+    font-size: 25px;
+    transition: all 0.3s;
+}
+
+.addMoreButton:hover{
+    cursor: pointer;
+    transform: scale(0.98);
+    color: black;
+    background: #fa3a3a;
+}
