@@ -13,7 +13,7 @@ function Book({title, authors, categories, image, id, date}:any){
     <div key={id} className={c.Book} onClick={handleRedirect}>
         <img src={image} alt={title} className={c['book-img']} />
         <div className={c['book-info']}>
-            <div className={c['book-categories']}>{categories}</div>
+            <div className={c['book-categories']}>{categories===null?'':categories[0]}</div>
             <div className={c['book-title']}>{title}</div>
             <div className={c['book-authors']}>{authors}</div>
         </div>

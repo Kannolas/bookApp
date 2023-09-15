@@ -2,14 +2,13 @@ import { AppDispatch } from "../store";
 import { SearchParams, VolumeInfo } from "../../types/types";
 import API_KEY from "../../info";
 import { BASE_URL } from "../../info";
-import { booksFetching, booksFetchingSuccess, booksFetchingError } from "./BookSlice";
+import {booksFetching, booksFetchingSuccess, booksFetchingError, sortBooksByTitle, sortBooksByDate} from "./BookSlice";
 import removeDuplicatesById from "../../funcs/removeDuplicatesById";
 
 export const fetchBooks = ({ searchTerms, pageNumber, pageSize, sortingMethod, categories }: SearchParams) => async (dispatch: AppDispatch) => {
-    console.log('fetching');
     dispatch(booksFetching());
     try {
-        fetch(`${BASE_URL}?q=${searchTerms !== '' ? searchTerms : '*'}${categories !== 'All' ? `+subject:${categories}` : ''}&orderBy=${sortingMethod}&startIndex=${pageNumber}&maxResults=${pageSize}&key=${API_KEY}`)
+        fetch(`${BASE_URL}?q=${searchTerms !== '' ? searchTerms : '*'}${categories !== 'All' ? `+subject:${categories}` : ''}&startIndex=${pageNumber}&maxResults=${pageSize}&key=${API_KEY}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Ошибка ${response.status}`);
@@ -17,7 +16,6 @@ export const fetchBooks = ({ searchTerms, pageNumber, pageSize, sortingMethod, c
                 return response.json();
             })
             .then((data) => {
-                console.log(data);
                 const totalBooksCount: number = data.totalItems;
                 if (totalBooksCount === 0) {
                     throw new Error('Books not found');
@@ -38,14 +36,18 @@ export const fetchBooks = ({ searchTerms, pageNumber, pageSize, sortingMethod, c
                         id: item.id,
                     };
                 });
-                console.log(itemsArr);
                 const items:VolumeInfo[] = removeDuplicatesById(itemsArr)
                 const payload = {
                     items,
                     totalBooksCount,
                 };
-                console.log(payload);
                 dispatch(booksFetchingSuccess(payload));
+                if(sortingMethod==='relevance'){
+                    dispatch(sortBooksByTitle())
+                }
+                else{
+                    dispatch(sortBooksByDate())
+                }
             })
             .catch((e) => {
                 console.log(e);

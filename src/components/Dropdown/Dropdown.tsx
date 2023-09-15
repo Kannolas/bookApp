@@ -16,10 +16,10 @@ export default function Dropdown({list, select, onCategoryChange}:DropdownProps)
     }
     return(
         <div className={c.dropdown}>
-            <div className={c['dropdown-default']} onClick={(e)=>setIsActive((!isActive))}><>{select}</><KeyboardArrowDownIcon/></div>
+            <div className={c['dropdown-default']} key={select} onClick={(e)=>setIsActive((!isActive))}><>{select}</><KeyboardArrowDownIcon/></div>
             {isActive?<div className={c['dropdown-content']}>
                 {list.map((item)=>{
-                    return(<div className={c['dropdown-elem']} onClick={()=>handleSelect(item)}>{item}</div>)
+                    return(<div className={c['dropdown-elem']} onClick={()=>handleSelect(item)} key={item}>{item}</div>)
                 })}
             </div>:''}
         </div>

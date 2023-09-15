@@ -5,27 +5,28 @@ import {fetchBooks} from "../redux/reducers/ActionCreators";
 import SearchForm from "../components/searchForm/SearchForm";
 import Booklist from "../components/BookList";
 import AddMoreButton from "../components/addMoreButton/addMoreButton";
+import {booksFetchingError, clearBooks} from "../redux/reducers/BookSlice";
 
 function Main(){
     const state = useAppSelector(state => state.bookSlice)
     const dispatch = useAppDispatch()
     useEffect(()=>{
         const params: SearchParams = {
-            searchTerms: '',
+            searchTerms: state.searchTerms,
             pageNumber:0,
             pageSize:30,
-            sortingMethod: 'relevance',
+            sortingMethod: state.sortingMethod,
             categories: state.categories
         }
         const fetchData = async ()=> {
             try {
                 await dispatch(fetchBooks(params))
-                console.log(state)
             } catch (e) {
-                console.log(e)
+                dispatch(booksFetchingError(e))
             }
         }
-        fetchData();
+        if(state.totalBooks===0){
+        fetchData();}
     }, [dispatch])
 
     const handleLoadMore=()=>{

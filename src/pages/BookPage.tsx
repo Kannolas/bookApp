@@ -8,7 +8,6 @@ export default function BookPage(){
     const books:VolumeInfo[] = useAppSelector(state => state.bookSlice.books)
     const {id} = useParams()
     const book = books.find((elem)=>elem.id===id)
-    console.log(book)
     return(
         <div className={'BookPage'}>
             <div className={'bookpage-cont'}>
