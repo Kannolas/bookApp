@@ -35,3 +35,17 @@
     width: 40px;
     height: 50px;
 }
+
+@media only screen and (max-width: 767px) {
+    .SearchBar{
+        width: 80%;
+    }
+    .search-field{
+        width: 80%;
+        padding: 10px;
+    }
+    .search-field::placeholder{
+        font-size: 15px;
+    }
+    .search-icon-cont{width: 20px}
+}

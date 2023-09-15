@@ -15,47 +15,6 @@ body{
   align-items: center;
 }
 
-.SearchForm{
-  width: 90%;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 70px;
-}
-
-.searchForm-container{
-  width: 100%;
-  height: 100%;
-  background:rgba(255, 255, 255, 0.7);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 25px;
-}
-
-.search-header-text{
-  font-size: 50px;
-  color: black;
-}
-
-.search-searchForm{
-  width: 440px;
-  height: 60px;
-}
-
-.search-dropdowns{
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.search-text{
-  font-size: 25px;
-}
-
 .Booklist{
   width: 100%;
   height: auto;
@@ -76,7 +35,6 @@ body{
 }
 
 .Booklist-cont{
-
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -89,55 +47,7 @@ body{
   color: #282222;
 }
 /*book*/
-.Book{
-  width: 80%;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: rgb(246, 233, 233);
-  transition: all 0.3s;
-}
-.Book:hover{
-  transform:scale(1.03);
-  background: #dec3ef;
-}
 
-.book-img{
-  width: 80%;
-  height: 200px;
-  cursor: pointer;
-}
-
-.book-info{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 10px;
-}
-
-.book-categories{
-  color: #454748;
-  text-decoration: underline;
-  font-size: 15px;
-}
-
-.book-title{
-  font-size: 20px;
-  font-weight: 400;
-  color: black;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-
-
-.book-authors{
-  color: #797878;
-}
 
 
 .loading{
@@ -178,11 +88,12 @@ body{
 
 .bookpage-cont{
   width: 80%;
-  height: 90%;
+  height: 95%;
   background: white;
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-radius: 7px;
 }
 
 .bookpage-img-cont{
@@ -239,3 +150,48 @@ body{
   font-weight: 600;
   color: #525252;
 }
+
+
+@media only screen and (max-width: 767px) {
+  .BookPage{
+    height: auto;
+  }
+.Booklist-allcont{
+  width: 100%;
+}
+  .Booklist-cont{
+    grid-template-columns: repeat(1,1fr);
+  }
+
+  .bookpage-cont{
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.7) ;
+  }
+  .bookpage-img-cont{
+    width: auto;
+    height: auto;
+  }
+  .bookpage-img{
+    width: 200px;
+    height: 400px;
+  }
+  .bookpage-info{
+    width: 90%;
+  }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .Booklist-allcont{
+    width: 80%;
+  }
+  .Booklist-cont{
+    grid-template-columns: repeat(1,1fr);
+    place-items: center;
+  }
+
+}
+
+

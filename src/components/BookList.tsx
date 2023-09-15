@@ -1,7 +1,7 @@
 import React from "react";
 import {useAppSelector} from "../hooks/redux";
 import {VolumeInfo} from "../types/types";
-import Book from "./Book";
+import Book from "./Book/Book";
 import LoadingSpinner from "./spinner/LoadingSpinner";
 import notFoundImg from '../imgs/image_not_available.png'
 function Booklist(){

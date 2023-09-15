@@ -27,11 +27,6 @@
     background: #c299f3;
 }
 
-.dropdown-content{
-
-
-}
-
 .dropdown-elem{
     padding: 10px;
     transition: all 0.3s;
@@ -51,4 +46,22 @@
     font-weight: 500;
     color: #333;
     border-radius: 3px;
+}
+
+@media only screen and (max-width: 767px) {
+    .dropdown{
+        width: 110px;
+        justify-content: flex-start;
+    }
+    .dropdown-default{
+        padding: 5px 10px;
+        font-size: 15px;
+    }
+    .dropdown-elem{
+        padding: 5px;
+    }
+    .dropdown-content{
+        width: 100%;
+        padding: 0;
+    }
 }
