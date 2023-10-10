@@ -40,7 +40,6 @@ const Main:FunctionComponent = ()=>{
         const fetchData = async ()=> {
             try {
                 await dispatch(fetchBooks(params))
-                console.log(state)
             } catch (e) {
                 console.log(e)
             }

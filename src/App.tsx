@@ -11,7 +11,7 @@ const App:FunctionComponent = ()=>{
         <BrowserRouter>
           <Routes>
             <Route path={'/'} element={<Main/>}/>
-              <Route path={'/book/:id'} element={<BookPage/>}/>
+            <Route path={'/book/:id'} element={<BookPage/>}/>               
           </Routes>
         </BrowserRouter>
   );
