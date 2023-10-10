@@ -1,10 +1,10 @@
-import React from "react";
+import {FunctionComponent} from "react";
 import {useAppSelector} from "../hooks/redux";
 import {VolumeInfo} from "../types/types";
 import Book from "./Book/Book";
 import LoadingSpinner from "./spinner/LoadingSpinner";
 import notFoundImg from '../imgs/image_not_available.png'
-function Booklist(){
+const Booklist:FunctionComponent = ()=>{
     const {books, isLoading, error, totalBooksCount} = useAppSelector(state => state.bookSlice)
     return(<>
             <div className={'Booklist'}>

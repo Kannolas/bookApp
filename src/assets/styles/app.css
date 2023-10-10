@@ -3,7 +3,7 @@
 font-family: Calibri;
 }
 body{
-  background: url('./imgs/background.jpg');
+  background: url('../../imgs/background.jpg');
 }
 
 .Main {

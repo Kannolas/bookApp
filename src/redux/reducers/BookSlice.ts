@@ -1,7 +1,7 @@
 import {VolumeInfo} from "../../types/types";
 import {createSlice} from "@reduxjs/toolkit";
 import {BookState} from "../../types/types";
-import removeDuplicatesById from "../../funcs/removeDuplicatesById";
+import removeDuplicatesById from "../../assets/removeDuplicatesById";
 
 
 const initialState: BookState = {

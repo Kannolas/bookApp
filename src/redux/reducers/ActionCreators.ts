@@ -3,7 +3,7 @@ import { SearchParams, VolumeInfo } from "../../types/types";
 import API_KEY from "../../info";
 import { BASE_URL } from "../../info";
 import {booksFetching, booksFetchingSuccess, booksFetchingError, sortBooksByTitle, sortBooksByDate} from "./BookSlice";
-import removeDuplicatesById from "../../funcs/removeDuplicatesById";
+import removeDuplicatesById from "../../assets/removeDuplicatesById";
 
 export const fetchBooks = ({ searchTerms, pageNumber, pageSize, sortingMethod, categories }: SearchParams) => async (dispatch: AppDispatch) => {
     dispatch(booksFetching());

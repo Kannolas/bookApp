@@ -1,10 +1,16 @@
-import React from "react";
+import {FunctionComponent} from "react";
 import styles from '../addMoreButton/addMoreButton.module.css'
 
-export default function AddMoreButton({clickHandler}:{clickHandler: ()=> void}){
+interface addMoreButtonProps{
+    clickHandler: ()=>void
+}
+
+const AddMoreButton:FunctionComponent<addMoreButtonProps>  = ({clickHandler}:addMoreButtonProps)=>{
     return(
         <div className={styles.addMoreButton} onClick={clickHandler}>
             Load More +
         </div>
     )
 }
+
+export default AddMoreButton

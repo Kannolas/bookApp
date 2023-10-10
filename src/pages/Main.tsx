@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import {useEffect, FunctionComponent} from "react";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {SearchParams, VolumeInfo} from "../types/types";
 import {fetchBooks} from "../redux/reducers/ActionCreators";
@@ -7,7 +7,7 @@ import Booklist from "../components/BookList";
 import AddMoreButton from "../components/addMoreButton/addMoreButton";
 import {booksFetchingError, clearBooks} from "../redux/reducers/BookSlice";
 
-function Main(){
+const Main:FunctionComponent = ()=>{
     const state = useAppSelector(state => state.bookSlice)
     const dispatch = useAppDispatch()
     useEffect(()=>{

@@ -1,10 +1,10 @@
-import React from "react";
+import {FunctionComponent} from "react";
 import {useParams} from "react-router-dom";
 import {useAppSelector} from "../hooks/redux";
 import {VolumeInfo} from "../types/types";
 import notFoundImg from '../imgs/image_not_available.png'
 
-export default function BookPage(){
+const BookPage:FunctionComponent = ()=>{
     const books:VolumeInfo[] = useAppSelector(state => state.bookSlice.books)
     const {id} = useParams()
     const book = books.find((elem)=>elem.id===id)
@@ -23,3 +23,5 @@ export default function BookPage(){
         </div>
     )
 }
+
+export default BookPage

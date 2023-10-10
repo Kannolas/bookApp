@@ -1,5 +1,4 @@
-import React from "react";
-import {useState} from "react";
+import {useState, FunctionComponent} from "react";
 import c from './Dropdown.module.css'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
@@ -8,7 +7,8 @@ interface DropdownProps {
     select: string;
     onCategoryChange: (newCategory: string) => void;
 }
-export default function Dropdown({list, select, onCategoryChange}:DropdownProps){
+
+const Dropdown:FunctionComponent<DropdownProps> = ({list, select, onCategoryChange}:DropdownProps)=>{
     const [isActive, setIsActive]=useState(false)
     const handleSelect = (item:string)=>{
         onCategoryChange(item)
@@ -25,3 +25,4 @@ export default function Dropdown({list, select, onCategoryChange}:DropdownProps)
         </div>
     )
 }
+export default Dropdown;

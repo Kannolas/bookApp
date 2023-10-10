@@ -1,4 +1,4 @@
-import React from "react";
+import {FunctionComponent} from "react";
 import c from './SearchForm.module.css'
 import Dropdown from "../Dropdown/Dropdown";
 import SearchBar from "../SearchBar/SearchBar";
@@ -13,7 +13,7 @@ import {
     updateSearchTerms
 } from "../../redux/reducers/BookSlice";
 import {fetchBooks} from "../../redux/reducers/ActionCreators";
-function SearchForm(){
+const SearchForm:FunctionComponent = () =>{
     const books = useAppSelector(state => state.bookSlice)
     const dispatch = useAppDispatch()
     const categories:string[] = ['All', 'art', 'biography', 'computers', 'history', 'medical', 'poetry']
